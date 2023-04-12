@@ -16,7 +16,7 @@ public class StartButton extends TextEntity implements MouseButtonPressedListene
 
     private PongRedefined pongRedefined;
     public StartButton(Coordinate2D initialLocation, PongRedefined pongRedefined) {
-        super(initialLocation, "zeb");
+        super(initialLocation, "Begin spel");
         setFill(Color.PURPLE);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
 

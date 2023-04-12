@@ -6,13 +6,15 @@ import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
+import com.github.hanyaeger.tutorial.GameLevel;
 import javafx.scene.input.KeyCode;
 
 import java.util.Set;
 
 public class Pong extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collider {
-
     private int id;
+    public static int initialSpeed = 5;
+    public int speed = 5;
     public Pong(Coordinate2D location, String filePath, int id){
         super(filePath, location);
         this.id = id;
@@ -22,17 +24,17 @@ public class Pong extends DynamicSpriteEntity implements KeyListener, SceneBorde
     public void onPressedKeysChange(Set<KeyCode> pressedKeys) {
         if (this.id == 0) {
             if(pressedKeys.contains(KeyCode.W)){
-                setMotion(3,180d);
+                setMotion(speed,180d);
             } else if(pressedKeys.contains(KeyCode.S)){
-                setMotion(3,0d);
+                setMotion(speed,0d);
             } else {
                 setSpeed(0);
             }
         } else {
             if(pressedKeys.contains(KeyCode.UP)){
-                setMotion(3,180d);
+                setMotion(speed,180d);
             } else if(pressedKeys.contains(KeyCode.DOWN)){
-                setMotion(3,0d);
+                setMotion(speed,0d);
             } else {
                 setSpeed(0);
             }
@@ -59,4 +61,5 @@ public class Pong extends DynamicSpriteEntity implements KeyListener, SceneBorde
                 break;
         }
     }
+
 }
